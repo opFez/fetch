@@ -1,0 +1,16 @@
+#!/bin/sh
+
+os=$(grep -m1 ID= /etc/os-release | sed s/ID=//)
+kernel=$(uname -r)
+uptime=$(uptime -p | sed s/up\ //)
+wm=$(wmctrl -m | grep Name: | sed s/Name:\ //)
+
+echo -n "    .--.     "  ; echo "os:       $os"
+echo -n "   |o_o |    "  ; echo "kernel:   $kernel"
+echo -n "   |:_/ |    "  ; echo "uptime:   $uptime"
+echo -n "  //   \ \   "  ; echo "wm:       $wm"
+echo -n " (|     | )  "  ; echo "shell:    $SHELL"
+echo -n "/'\_   _/'\\  " ; echo "terminal: $TERM"
+echo -n "\___)=(___/  "  ; echo "editor:   $EDITOR"
+echo ""
+
