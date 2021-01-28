@@ -1,6 +1,6 @@
 #!/bin/sh
 
-os=$(grep -m1 ID= /etc/os-release | sed s/ID=//)
+os=$(grep -e "^ID=" /etc/os-release | sed s/ID=//)
 kernel=$(uname -r)
 uptime=$(uptime -p | sed s/up\ //)
 wm=$(wmctrl -m | grep Name: | sed s/Name:\ //)
@@ -13,4 +13,3 @@ echo -n " (|     | )  "  ; echo "shell:    $SHELL"
 echo -n "/'\_   _/'\\  " ; echo "terminal: $TERM"
 echo -n "\___)=(___/  "  ; echo "editor:   $EDITOR"
 echo ""
-
